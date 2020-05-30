@@ -57,3 +57,16 @@ class Solution(object):
             if result > (2 ** 31) - 1:
                 result = (2 ** 31) - 1
         return result
+
+def ou(fun):
+    def inner(a,*args,**kwargs):
+        print(a)
+        fun(*args,**kwargs)
+
+    return inner
+
+@ou
+def ad(x,y,z):
+    print(x+y,z)
+
+ad(1,4,5)
