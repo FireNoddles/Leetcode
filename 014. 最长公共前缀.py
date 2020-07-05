@@ -20,9 +20,9 @@ class Solution(object):
             else:
                 flag = 0
         return re
-a = Solution()
-a.longestCommonPrefix(
-["aca","cba"])
+# a = Solution()
+# a.longestCommonPrefix(
+# ["aca","cba"])
 
 
 #、利用python的max()和min()，在Python里字符串是可以比较的，按照ascII值排，举例abb， aba，abac，最大为abb，最小为aba。所以只需要比较最大最小的公共前缀就是整个数组的公共前缀
@@ -41,3 +41,4 @@ class Solution(object):
             if si[_] != sm[_]:
                 return sm[:_]
         return si
+
