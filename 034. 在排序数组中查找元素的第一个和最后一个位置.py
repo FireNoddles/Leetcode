@@ -10,6 +10,7 @@
 
 
 # 口诀：查值直接就返回 查左收右不返回 查右收左不返回 左右别忘查越界
+# https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/er-fen-cha-zhao-suan-fa-xi-jie-xiang-jie-by-labula/
 class Solution(object):
     def search(self, nums, target):
         """
