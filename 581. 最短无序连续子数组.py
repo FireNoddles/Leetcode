@@ -42,5 +42,45 @@ class Solution(object):
                 r = j
             m_in = min(m_in, nums[j])
         return 0 if l <= r else l - r + 1
+from multiprocessing import Process, Pipe
+
+def help(lock):
+    while 1:
+        a = lock.recv()
+        print('help2'+str(a))
+def help2(lock):
+    for _ in range(10):
+        lock.send('help2'+str(_))
+
+if __name__ == '__main__':
+    # l1,l2 = Pipe()
+    # l1.send('111')
+    #
+    # p1 = Process(target=help,args = (l2,))
+    # p2 = Process(target=help2, args = (l1,))
+    # p1.start()
+    # p2.start()
+    def quick_sort(arr, left, right):
+        if left>=right:
+            return
+        mid = arr[left]
+        l = left
+        r = right
+
+        while l<r:
+            # 小于等于很重要
+            while l<r and arr[r] >= mid:
+                r-=1
+            arr[l] = arr[r]
+            while l<r and arr[l] <= mid:
+                l+=1
+            arr[r] = arr[l]
+        arr[l] = mid
+        quick_sort(arr,left,l-1)
+        quick_sort(arr,l+1,right)
+
+    a = [5,4,3,5,7,9,10,21]
+    quick_sort(a,0,len(a)-1)
+    print(a)
 
 

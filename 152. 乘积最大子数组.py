@@ -42,3 +42,16 @@ class Solution(object):
 
             ans = max(ans, max_ans)
         return ans
+
+
+
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        maxDp = [nums[0]]
+        minDp = [nums[0]]
+        for i in nums[1:]:
+            tmp = (i*maxDp[-1], i*minDp[-1], i)
+            maxDp.append(max(tmp))
+            minDp.append(min(tmp))
+        return max(maxDp)
+

@@ -37,3 +37,53 @@ class Solution(object):
             if temp !=[]:
                 dp[_] = min(temp)
         return dp[-1]
+
+
+
+# 给定不同面额的硬币和一个总金额。
+# 写出函数来计算可以凑成总金额的硬币组合数。
+# 假设每一种面额的硬币有无限个。
+
+
+# dp[i] += dp[i - coin]，价值为i的解决方案应该加上价值为i - coin的解决方案
+class Solution(object):
+    def coinChange(self, coins, amount):
+        """
+        :type coins: List[int]
+        :type amount: int
+        :rtype: int
+        """
+        dp = [0 for i in range(amount+1)]
+        dp[0] = 1
+        for i in coins:
+            for j in range(1,amount+1):
+                if j >=i:
+                    dp[j] += dp[j - i]
+        return dp[-1]
+
+import time
+
+def de(fun):
+    def nei(sr):
+        print(sr)
+        a = time.time()
+        fun()
+        b = time.time()
+        return b - a
+    return nei
+
+@de
+def help():
+    try:
+        print('try')
+    except Exception as e:
+        print('exception')
+    else:
+        print('else')
+    finally:
+        time.sleep(10)
+        print(666)
+        return 1
+
+a = help('123')
+print(a)

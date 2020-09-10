@@ -25,3 +25,38 @@ class Solution(object):
                         break
                 stack.append([i,T[i]])
         return ans
+
+# import heapq
+# s = input().split()
+# arr = list(map(int, s))
+# m, n, x = (arr[i] for i in range(3))
+# # m, n, x  = arr[0], arr[1], arr[2]
+# s = input().split()
+# data = list(map(int, s))
+# heap = []
+# for i in data:
+#     heapq.heappush(heap, i)
+# while n>0:
+#     target = heapq.heappop(heap)
+#     heapq.heappush(heap, target+x)
+#     n-=1
+# print(heapq.heappop(heap))
+
+
+
+s = input()
+n = int(s)
+s = input().split()
+data = sorted(list(map(int, s)),reverse=True)
+i = len(data)-1
+while len(set(data))!=len(data) and i > 0:
+    if data[i]==data[i-1]:
+        while data[i]==data[i-1]:
+            i-=1
+        data[i+1]+=data[i+1]
+        del data[i]
+        i = len(data)-1
+    else:
+        i-=1
+print(data)
+

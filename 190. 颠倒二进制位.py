@@ -27,3 +27,5 @@ class Solution:
             n = n >> 1
 
         return ans
+
+print(10|0)

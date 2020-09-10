@@ -27,6 +27,7 @@ class Solution(object):
             else: return 1
         i = 0
         j = len(nums) -1
+        # 注意不是小于等于 因为j=mid
         while i<j:
             mid = (i+j) //2
             if nums[mid] > nums[mid+1]:

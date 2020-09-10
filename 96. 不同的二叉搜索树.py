@@ -32,6 +32,26 @@
 # 来源：力扣（LeetCode）
 # 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
+
+# (2n)! / (n!(n+1)!)
+class Solution(object):
+    def numTrees(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        temp = 1
+
+        for i in range(1, 2 * n + 1):
+            temp = temp * i
+            if i == n:
+                a = temp
+            if i == n + 1:
+                b = temp
+            if i == 2 * n:
+                c = temp
+        return c / (a * b)
+
 class Solution(object):
     def numTrees(self, n):
         """

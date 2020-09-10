@@ -45,7 +45,7 @@ class Solution(object):
             if c<k:
                 low = mid+1
             else:
-                # 因为有可能c==k
+                # 因为有可能c==k 因为mid有可能不在矩阵之中 所以最后返回high
                 high = mid
         return high
     def help(self, matrix, target, length):
